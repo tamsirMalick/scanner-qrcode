@@ -1,0 +1,43 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-buttons slot="start">
+        </ion-buttons>
+        <ion-title style="text-align: center">Scanneur de QR Code</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content [fullscreen]="true">
+    <ion-card class="welcome-card">
+        <img src="/assets/qrcode-classic-blue.png" alt=""/>
+        <ion-card-header>
+            <ion-card-title style="text-align: center">Scanner tous vos QRCodes</ion-card-title>
+        </ion-card-header>
+
+    </ion-card>
+
+    <ion-header collapse="condense">
+        <ion-toolbar>
+            <ion-title size="large">QRCode</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <div *ngIf="!showCamera">
+        <ion-item *ngIf="textScanned" lines="none">
+            <ion-label>
+                <p>Contenu du QR Code</p>
+                <h2><b>{{ textScanned }}</b></h2>
+            </ion-label>
+        </ion-item>
+        <ion-button expand="block" (click)="scanCode()" >
+            <ion-icon slot="start" name="qr-code"></ion-icon>
+            Scanner un QR Code
+        </ion-button>
+    </div>
+    <div *ngIf="!showCamera">
+
+        <div class="center" *ngIf="myQrCode">
+            <qrcode [qrdata]="myQrCode" [size]="250" [level]="'M'"></qrcode>
+        </div>
+    </div>
+</ion-content>

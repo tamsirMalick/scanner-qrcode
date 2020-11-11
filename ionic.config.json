@@ -1,0 +1,10 @@
+{
+  "name": "scanner-qrcode",
+  "integrations": {
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
+  },
+  "type": "angular"
+}
